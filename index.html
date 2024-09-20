@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Generator</title>
+</head>
+<body>
+    <h2>Email IPO Request</h2>
+    <form onsubmit="sendEmail(); return false;">
+        <label for="name">Client Name:</label><br>
+        <input type="text" id="name" required><br><br>
+        <label for="code">Client Code:</label><br>
+        <input type="text" id="code" required><br><br>
+        <input type="submit" value="Send Email">
+    </form>
+
+    <script>
+        function sendEmail() {
+            const name = document.getElementById('name').value;
+            const code = document.getElementById('code').value;
+            const subject = "Request for IPO Funding";
+            const body = `Dear Sir/Madam,\n\nI/we request funding assistance for the upcoming Initial Public Offering (IPO) of Northern Arc Capital.\nI/we would like to apply for the said IPO to the tune of Rs 10,04,397 @ ROI Rs 2000 & Margin of 20%.\nWe further allow you to pledge the shares lying as collateral in our DP for Margin purposes if required.\n\nClient Name: ${name}\nClient Code: ${code}`;
+            window.location.href = `mailto:nbfcops@motilaloswal.com?cc=backoffice.jod@gmail.com&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+    </script>
+</body>
+</html>
